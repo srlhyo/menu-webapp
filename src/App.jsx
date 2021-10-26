@@ -1,6 +1,7 @@
 import React from 'react'
 import Popup from './components/Popup'
 import {useState} from 'react';
+import myVideo from '../videos/menu.mp4';
 
 
 export default function App() {
@@ -51,7 +52,7 @@ export default function App() {
       </div>
       <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
             <video width="600" autoplay="autoplay">
-                <source src="/videos/menu.mp4" type="video/mp4" />
+                <source src={myVideo} type="video/mp4" />
             </video>
       </ Popup>
     </div>
