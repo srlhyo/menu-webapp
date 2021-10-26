@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default function Popup(props) {
-    console.log("my props", props)
     return (props.trigger) ? (
         <div className="bg-modal-close-50 w-full h-screen flex justify-center items-center fixed top-0 left-0 animate-grow-box">
             <div className="relative">

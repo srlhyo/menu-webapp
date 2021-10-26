@@ -23,7 +23,7 @@ module.exports = {
           '900': '#4d442d'
         },
         'modal-close': {
-          '50': 'rgba(0, 0, 0, 0.8)'
+          '50': 'rgba(0, 0, 0, 0.9)'
         }
       },
       keyframes: {
