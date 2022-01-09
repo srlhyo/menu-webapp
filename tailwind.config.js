@@ -10,6 +10,7 @@ module.exports = {
         open : "'Open Sans', sans-serif"
       },
       colors: {
+        'black': '#000000',
         'hotel-corn': {
           '50': '#faf9f7', 
           '100': '#f5f3ef', 
