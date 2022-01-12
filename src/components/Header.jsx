@@ -9,8 +9,8 @@ function Header(props) {
                 {console.log(props.img)};
                 
             </div>
-            <nav className="text-[#c8a767] text-sm">
-                <ul className="list-none flex justify-evenly">
+            <nav className="text-sm">
+                <ul className="list-none flex justify-evenly text-golden">
                     {[
                         ['Entradas'],
                         ['Peixe'],

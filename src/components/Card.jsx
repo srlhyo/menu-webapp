@@ -1,14 +1,15 @@
 import React from 'react';
-import salmon from '../images/salmon.jpg';
+import playButton from '../images/Play2.png';
 
-function Card() {
+function Card(props) {
     return (
-        <div className="font-segoe text-slate-200 w-11/12 mx-auto">
-            <img src={salmon} alt="salmon" />
-            <h3 className="text-sm py-3">Salmon Tartare</h3>
-            <p className="text-xs">Fresh salmon tartare with mango, topped with fresh fennel salad,
-                crispy green onion and pistachio. GF | DF | FISH
-            </p>
+        <div className="relative font-segoe text-slate-200 w-11/12 mx-auto">
+            <div onClick={props.thumbneilClicked}>
+                <img src={props.img} alt="salmon" />
+                <img className="absolute top-3 right-3 w-8" src={playButton} alt="playbutton" />
+            </div>
+            <h3 className="text-sm py-3">{props.title}</h3>
+            <p className="text-xs pb-12">{props.description}</p>
         </div>
     )
 }

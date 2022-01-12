@@ -15,6 +15,7 @@ module.exports = {
       colors: {
         // gray: colors.gray,
         'black': '#000000',
+        'golden': '#c8a767',
         'hotel-corn': {
           '50': '#faf9f7', 
           '100': '#f5f3ef', 
