@@ -1,15 +1,19 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
-  purge: ["./src/**/*.jsx", "./index.html"],
-  darkMode: false, // or 'media' or 'class'
+  content: ["./src/**/*.jsx", "./index.html"],
   theme: {
     extend: {
       width: {
         'custom': '99%'
       },
       fontFamily: {
-        open : "'Open Sans', sans-serif"
+        open : "'Open Sans', sans-serif",
+        acumin: 'acumin',
+        segoe: 'segoe',
       },
       colors: {
+        // gray: colors.gray,
         'black': '#000000',
         'hotel-corn': {
           '50': '#faf9f7', 
@@ -37,9 +41,6 @@ module.exports = {
         'grow-box': 'grow-box 1s ease-in-out'
       }
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [],
 }

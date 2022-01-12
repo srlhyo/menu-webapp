@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from './components/Header';
+import Card from './components/Card';
 import Popup from './components/Popup';
 import restaurant from './images/main.jpg';
 import {useState} from 'react';
@@ -9,8 +10,12 @@ import myVideo from '../videos/menu.mp4';
 
 export default function App() { 
     return (
-        <div>
+        <div className="w-full max-w-screen-md my-0 mx-auto bg-[#161616] h-screen font-segoe">
             <Header img={restaurant} />
+            <section className="">
+                <h2 className="uppercase text-slate-200 text-lg font-acumin ml-6">Peixe</h2>
+                <Card />
+            </section>
         </div>
     )
 //     const [buttonPopup, setButtonPopup] = useState(false);
