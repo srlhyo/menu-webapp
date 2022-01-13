@@ -4,14 +4,20 @@ import Logo from './Logo';
 function Header(props) {
     const [y, setY] = React.useState(window.scrollY);
     const header = React.useRef(null);
+    const menunav = React.useRef(null);
 
 const handleNavigation = React.useCallback(
   e => {
     const window = e.currentTarget;
     if (y < window.scrollY) {
+      header.current.classList.add("-translate-y-48");
       header.current.classList.remove("h-48");
-      header.current.classList.add("h-0");
-    } 
+    //   menunav.current.classList.remove("top-48");
+    } else if(window.scrollY < 50){
+        header.current.classList.remove("-translate-y-48");
+        header.current.classList.add("h-48");
+        // menunav.current.classList.add("top-48");
+    }
     
     setY(window.scrollY);
   }, [y]
@@ -27,12 +33,12 @@ React.useEffect(() => {
 }, [handleNavigation]);
 
     return (
-        <header>
-            <div ref={header} style={{backgroundImage: `url(${props.img})`}} className="h-48 bg-cover bg-center flex items-end justify-center transition-all duration-1000">
+        <header ref={header} className="fixed w-full top-0 transition-all duration-1000 z-10">
+            <div style={{backgroundImage: `url(${props.img})`}} className="h-48 bg-cover bg-center flex items-end justify-center">
                 <Logo />  
             </div>
-            <nav className="text-sm">
-                <ul className="list-none flex justify-evenly text-golden">
+            <nav ref={menunav} className="text-sm bg-[#161616] w-full">
+                <ul className="list-none flex justify-evenly items-center h-12 text-golden">
                     {[
                         ['Entradas'],
                         ['Peixe'],
@@ -41,7 +47,7 @@ React.useEffect(() => {
                         ['Vinhos'],
                         ['Saladas'],
                     ].map(([title]) => (
-                        <li className="mt-3 mb-6"><a className="py-3" href="#">{title}</a></li>
+                        <li><a className="py-3" href="#">{title}</a></li>
                     ))}
                 </ul>
             </nav>

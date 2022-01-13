@@ -16,8 +16,8 @@ export default function App() {
     return (
         <div className="w-full max-w-screen-md my-0 mx-auto bg-[#161616] h-full font-segoe">
             <Header img={restaurant} />
-            <section className="">
-                <h2 className="uppercase text-slate-200 text-lg font-acumin ml-6">Peixe</h2>
+            <section className="z-0">
+                <h2 className="uppercase text-slate-200 text-lg font-acumin ml-6 pt-64">Peixe</h2>
                 <Card img={dish1} title="Salmon Tartare" 
                 description="Fresh salmon tartare with mango, topped with fresh fennel salad,
                 crispy green onion and pistachio. GF | DF | FISH" thumbneilClicked={() => setButtonPopup(true)}/>
