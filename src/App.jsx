@@ -3,15 +3,15 @@ import Header from './components/Header';
 import Card from './components/Card';
 import dish1 from './images/salmon.jpg';
 import dish2 from './images/pexels-photo-5409025.jpeg';
-import Popup from './components/Popup';
+// import Popup from './components/Popup';
 import restaurant from './images/main.jpg';
-import {useState} from 'react';
-import myVideo from '../videos/menu.mp4';
+// import {useState} from 'react';
+// import myVideo from '../videos/menu.mp4';
 
 
 
 export default function App() { 
-    const [buttonPopup, setButtonPopup] = useState(false);
+    // const [buttonPopup, setButtonPopup] = useState(false);
 
     return (
         <div className="w-full max-w-screen-md my-0 mx-auto bg-[#161616] h-full font-segoe">
@@ -20,20 +20,19 @@ export default function App() {
                 <h2 className="uppercase text-slate-200 text-lg font-acumin ml-6 pt-64">Peixe</h2>
                 <Card img={dish1} title="Salmon Tartare" 
                 description="Fresh salmon tartare with mango, topped with fresh fennel salad,
-                crispy green onion and pistachio. GF | DF | FISH" thumbneilClicked={() => setButtonPopup(true)}/>
+                crispy green onion and pistachio. GF | DF | FISH"/>
                  <Card img={dish2} title="Dish2" 
                 description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam metus turpis, tincidunt nec magna eget, ultrices ornare velit."
-                thumbneilClicked={() => setButtonPopup(true)}/>
+                />
                  <Card img={dish1} title="Salmon Tartare" 
                 description="Fresh salmon tartare with mango, topped with fresh fennel salad,
-                crispy green onion and pistachio. GF | DF | FISH"
-                thumbneilClicked={() => setButtonPopup(true)}/>
+                crispy green onion and pistachio. GF | DF | FISH"/>
             </section>
-            <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
-//             <video width="600" autoplay="autoplay">
-//                 <source src={myVideo} type="video/mp4" />
-//             </video>
-//          </ Popup>
+            {/* <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+             <video width="600" autoplay="autoplay">
+                 <source src={myVideo} type="video/mp4" />
+             </video>
+          </ Popup> */}
         </div>
     )
 //     const [buttonPopup, setButtonPopup] = useState(false);
