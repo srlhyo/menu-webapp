@@ -4,20 +4,27 @@ import myVideo from '/videos/menu.mp4';
 
 function Card(props) {
 
-    let isClicked = false;
-    const dish = document.getElementById('dish');
+    // let isClicked = false;
+    //const dish = document.getElementById('dish');
 
-    function controlVideo() {    
-        if(!isClicked) {
-            dish.play();
-            isClicked = true;
-            console.log('video playing');
-            return;
+    function controlVideo(clickEvent) {    
+ 
+        //dish.play();
+        //isClicked = true
+        let videoElement = clickEvent.target
+
+        if (clickEvent.target.nodeName === 'IMG') {
+            videoElement = clickEvent.target.parentNode.children[1]
         }
 
-        dish.load();
-        isClicked = false;
-        console.log('video back to initial state');
+        if (videoElement.nodeName === 'VIDEO') {
+            if (videoElement.paused) {
+                videoElement.play()
+            } else {
+                videoElement.load()
+                console.log('video paused')
+            }
+        }
     }
 
     return (
