@@ -7,6 +7,7 @@ function Card(props) {
     // let isClicked = false;
     //const dish = document.getElementById('dish');\
     const playIcon = React.useRef(null);
+    const video = React.useRef(null);
 
     function controlVideo(clickEvent) {    
  
@@ -22,11 +23,13 @@ function Card(props) {
             if (videoElement.paused) {
                 videoElement.play()
                 playIcon.current.classList.add("opacity-0")
+                // video.current.classList.add("h-229px")
             } else {
                 videoElement.load()
                 console.log('video paused')
                 playIcon.current.classList.remove("opacity-0")
                 playIcon.current.classList.add("opacity-1")
+                // video.current.classList.remove("h-229px")
             }
         }
     }
@@ -37,9 +40,9 @@ function Card(props) {
                 <img src={props.img} alt="salmon" />
                 <img className="absolute top-3 right-3 w-8" src={playButton} alt="playbutton" />
             </div> */}
-            <div id="clickDish" onClick={controlVideo}>
+            <div className="w-full h-229px" id="clickDish" onClick={controlVideo}>
                 <img ref={playIcon} className="absolute top-3 right-3 w-8 transition-all duration-500" src={playButton} alt="playbutton" />
-                <video id="dish" className="object-fill h-46" muted poster={props.img}>
+                <video className="object-cover" ref={video} id="dish" width="100%" height="100%" muted poster={props.img}>
                     <source src={myVideo} type="video/mp4" />
                 </video>
             </div>

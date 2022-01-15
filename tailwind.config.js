@@ -7,6 +7,9 @@ module.exports = {
       width: {
         'custom': '99%'
       },
+      height: {
+        '229px': '229px',
+      },
       fontFamily: {
         open : "'Open Sans', sans-serif",
         acumin: 'acumin',

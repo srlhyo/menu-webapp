@@ -11,4 +11,8 @@
     src: local('segoe'), url(../fonts/seguiemj.ttf) format('truetype');
 }
 
+video {
+    height: inherit !important;
+}
+
 @tailwind utilities;

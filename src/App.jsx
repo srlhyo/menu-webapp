@@ -14,7 +14,7 @@ export default function App() {
     // const [buttonPopup, setButtonPopup] = useState(false);
 
     return (
-        <div className="relative w-full max-w-screen-md my-0 mx-auto bg-[#161616] h-full font-segoe">
+        <div className="relative w-full max-w-screen-xl my-0 mx-auto bg-[#161616] h-full font-segoe">
             <Header img={restaurant} />
             <nav className="text-sm bg-[#161616] w-full sticky top-0 z-10">
                 <ul className="list-none flex justify-evenly items-center h-12 text-golden">
@@ -31,7 +31,7 @@ export default function App() {
                 </ul>
             </nav>
             <section className="z-0">
-                <h2 className="uppercase text-slate-200 text-lg font-acumin ml-6">Peixe</h2>
+                <h2 className="uppercase text-slate-200 text-lg font-acumin ml-6 mt-4">Peixe</h2>
                 <Card img={dish1} title="Salmon Tartare"
                     description="Fresh salmon tartare with mango, topped with fresh fennel salad,
                 crispy green onion and pistachio. GF | DF | FISH"/>
