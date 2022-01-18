@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from './components/Header';
 import Card from './components/Card';
+import Logo from './components/Logo';
 import dish1 from './images/salmon.jpg';
 import dish2 from './images/pexels-photo-5409025.jpeg';
 // import Popup from './components/Popup';
@@ -8,7 +9,10 @@ import restaurant from './images/main.jpg';
 // import {useState} from 'react';
 // import myVideo from '../videos/menu.mp4';
 
-
+// css
+var scrollStyle = {
+    "scrollbar-width": "none"
+}
 
 export default function App() {
     // const [buttonPopup, setButtonPopup] = useState(false);
@@ -16,8 +20,9 @@ export default function App() {
     return (
         <div className="relative w-full max-w-screen-xl my-0 mx-auto bg-[#161616] h-full font-segoe">
             <Header img={restaurant} />
-            <nav className="text-sm bg-[#161616] w-full sticky top-0 z-10">
-                <ul className="list-none flex justify-evenly items-center h-12 text-golden">
+            <Logo />
+            <nav className="text-sm bg-[#161616] w-full sticky top-0 z-[1] pt-[45px] font-bold pl-[12px]">
+                <ul style={scrollStyle} className="list-none flex items-center h-12 text-golden w-full text-[16px] rounded-l-[22px] justify-start mt-[14px] py-[8px] px-[10px] bg-[#333] overflow-y-auto scrollbar ">
                     {[
                         ['Entradas'],
                         ['Peixe'],
@@ -26,7 +31,7 @@ export default function App() {
                         ['Vinhos'],
                         ['Saladas'],
                     ].map(([title]) => (
-                        <li><a className="py-3" href="#">{title}</a></li>
+                        <li className="pt-[5px] pr-[8px] pb-[4px] pl-[8px] rounded-[19px] border border-[#444] bg-[#181818]"><a className="py-3" href="#">{title}</a></li>
                     ))}
                 </ul>
             </nav>

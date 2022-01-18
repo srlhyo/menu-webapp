@@ -1,5 +1,4 @@
 import React from 'react';
-import Logo from './Logo';
 
 function Header(props) {
   // const [y, setY] = React.useState(window.scrollY);
@@ -34,8 +33,7 @@ function Header(props) {
 
   return (
     <header className="w-full">
-      <div style={{ backgroundImage: `url(${props.img})` }} className="h-48 bg-cover bg-center flex items-end justify-center">
-        <Logo />
+      <div style={{ backgroundImage: `url(${props.img})` }} className="h-48 bg-cover bg-center flex items-end justify-center relative mb-[-57px] z-[2]">
       </div>
     </header>
   )
