@@ -53,7 +53,7 @@ export default function App() {
             <Header img={restaurant} ref={header} />
             <Logo />
             <nav className="text-sm bg-[#161616] w-full sticky top-0 z-[1] pt-[45px] font-bold pl-[12px]">
-                <ul style={scrollStyle} className="list-none flex items-center h-12 text-golden w-full text-[16px] rounded-l-[22px] justify-start mt-[14px] py-[8px] px-[10px] bg-[#333] overflow-y-auto ovelflow-x-hidden scrollbar ">
+                <ul style={scrollStyle} className="list-none flex items-center h-12 text-golden w-full text-[16px] rounded-l-[22px] border-l-[15px] border-[#333] justify-start mt-[14px] py-[8px] px-[10px] bg-[#333] overflow-y-auto ovelflow-x-hidden scrollbar ">
                     {navLinks.map(title => (
                         <li key={navLinks.indexOf(title)} className="pt-[5px] pr-[8px] pb-[4px] pl-[8px] rounded-[19px] border border-[#444] bg-[#181818]"><a className="py-3" href="#">{title}</a></li>
                     ))}
