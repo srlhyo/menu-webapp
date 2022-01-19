@@ -6,32 +6,56 @@ import dish1 from './images/salmon.jpg';
 import dish2 from './images/pexels-photo-5409025.jpeg';
 // import Popup from './components/Popup';
 import restaurant from './images/main.jpg';
+import scrollIcon from './images/Top.png';
+
 // import {useState} from 'react';
 // import myVideo from '../videos/menu.mp4';
 
 // css
 var scrollStyle = {
-    "scrollbar-width": "none"
+    "scrollbarWidth": "none"
 }
 
 export default function App() {
+    const header = React.createRef();
+    // const scrollTopIcon = React.createRef();
+    const [scrollTopIcon,setScrollTopIcon] = React.useState(true);
+    const navLinks = [
+        'Entradas',
+        'Peixe',
+        'Carne',
+        'Kids',
+        'Vinhos',
+        'Saladas'];
+    
+    function hideScrollIcon() {
+        if (window.scrollY < document.body.scrollHeight/3) {
+                setScrollTopIcon(false);
+            } else {
+                setScrollTopIcon(true);
+            }
+        // if (window.scrollY < document.body.scrollHeight/2) {
+        //     scrollTopIcon.current.classList.add("opacity-0");
+        // } else {
+        //     scrollTopIcon.current.classList.remove("opacity-0");
+        // }
+    }
+    
     // const [buttonPopup, setButtonPopup] = useState(false);
+    function scrollTop(){
+        header.current.scrollIntoView({behavior: "smooth", block: "start"});
+    }
+
+    document.addEventListener('scroll', hideScrollIcon);
 
     return (
         <div className="relative w-full max-w-screen-xl my-0 mx-auto bg-[#161616] h-full font-segoe">
-            <Header img={restaurant} />
+            <Header img={restaurant} ref={header} />
             <Logo />
             <nav className="text-sm bg-[#161616] w-full sticky top-0 z-[1] pt-[45px] font-bold pl-[12px]">
-                <ul style={scrollStyle} className="list-none flex items-center h-12 text-golden w-full text-[16px] rounded-l-[22px] justify-start mt-[14px] py-[8px] px-[10px] bg-[#333] overflow-y-auto scrollbar ">
-                    {[
-                        ['Entradas'],
-                        ['Peixe'],
-                        ['Carne'],
-                        ['Kids'],
-                        ['Vinhos'],
-                        ['Saladas'],
-                    ].map(([title]) => (
-                        <li className="pt-[5px] pr-[8px] pb-[4px] pl-[8px] rounded-[19px] border border-[#444] bg-[#181818]"><a className="py-3" href="#">{title}</a></li>
+                <ul style={scrollStyle} className="list-none flex items-center h-12 text-golden w-full text-[16px] rounded-l-[22px] justify-start mt-[14px] py-[8px] px-[10px] bg-[#333] overflow-y-auto ovelflow-x-hidden scrollbar ">
+                    {navLinks.map(title => (
+                        <li key={navLinks.indexOf(title)} className="pt-[5px] pr-[8px] pb-[4px] pl-[8px] rounded-[19px] border border-[#444] bg-[#181818]"><a className="py-3" href="#">{title}</a></li>
                     ))}
                 </ul>
             </nav>
@@ -47,6 +71,7 @@ export default function App() {
                     description="Fresh salmon tartare with mango, topped with fresh fennel salad,
                 crispy green onion and pistachio. GF | DF | FISH"/>
             </section>
+            <img className={"fixed bottom-4 right-4 w-10 " + (scrollTopIcon ? "opacity-1" : "opacity-0")} src={scrollIcon} alt="scroll top icon" onClick={scrollTop} />
             {/* <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
              <video width="600" autoplay="autoplay">
                  <source src={myVideo} type="video/mp4" />

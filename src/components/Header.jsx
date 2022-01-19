@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Header(props) {
+const Header = React.forwardRef((props, ref) => (
   // const [y, setY] = React.useState(window.scrollY);
   // const header = React.useRef(null);
   // const menunav = React.useRef(null);
@@ -30,13 +30,15 @@ function Header(props) {
   //     window.removeEventListener("scroll", handleNavigation);
   //   };
   // }, [handleNavigation]);
-
-  return (
+  <div className="relative">
     <header className="w-full">
       <div style={{ backgroundImage: `url(${props.img})` }} className="h-48 bg-cover bg-center flex items-end justify-center relative mb-[-57px] z-[2]">
       </div>
+      {props.children}
     </header>
-  )
-}
+    <span ref={ref} className="absolute bottom-12"></span>
+    </div>
+  ));
+
 
 export default Header;
