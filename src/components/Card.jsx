@@ -61,7 +61,7 @@ function Card(props) {
         //Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)/4
     }
 
-    const VIDEO_PAUSE_SCROLL_PERCENT = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)/(100/25)
+    const VIDEO_PAUSE_SCROLL_PERCENT = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)/(100/47)
     function onScroll(scrollEvent) {
         const CURRENT_Y = window.scrollY
         for (let i = playingVideos.length-1; i >= 0; i--) {
