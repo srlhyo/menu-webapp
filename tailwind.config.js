@@ -5,7 +5,9 @@ module.exports = {
   theme: {
     extend: {
       width: {
-        'custom': '99%'
+        'custom': '99%',
+        '95%': '90%',
+        '55px': '55px'
       },
       height: {
         '229px': '229px',
@@ -15,8 +17,13 @@ module.exports = {
         acumin: 'acumin',
         segoe: 'segoe',
       },
+      backdropFilter: {
+        'none': 'none',
+        'blur': 'blur(20px)',
+      },
       colors: {
         // gray: colors.gray,
+        'transparent': 'transparent',
         'black': '#000000',
         'golden': '#c8a767',
         'hotel-corn': {
