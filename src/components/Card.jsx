@@ -85,7 +85,7 @@ function Card(props) {
             <div className="w-full h-229px" id="clickDish" onClick={controlVideo}>
                 <img ref={playIcon} className="absolute top-3 right-3 w-8 transition-all duration-500" src={playButton} alt="playbutton" />
                 <video onEnded={videoEnded} onPlay={videoStart} className="object-cover" ref={video} id="dish" width="100%" height="100%" muted poster={props.img}>
-                    <source src={myVideo} type="video/mp4" />
+                <source src={myVideo} type="video/mp4"></source>
                 </video>
             </div>
             <h3 className="text-sm py-3">{props.title}</h3>
