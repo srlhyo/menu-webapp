@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Logo from './components/Logo';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAnglesRight } from '@fortawesome/free-solid-svg-icons'
+import { faAnglesLeft } from '@fortawesome/free-solid-svg-icons'
 import restaurant from './images/main.jpg';
 import scrollIcon from './images/Top.png';
 import Section from './components/Section';
@@ -15,6 +16,7 @@ var scrollStyle = {
 export default function App() {
 
     const [section, setSection] = React.useState("Entradas");
+    const [navArrow, setNavArrow] = React.useState("right");
 
     const header = React.createRef();
     // const scrollTopIcon = React.createRef();
@@ -25,7 +27,8 @@ export default function App() {
         'Carne',
         'Kids',
         'Vinhos',
-        'Saladas'];
+        'Saladas',
+    ];
 
         function getSectionName(title) {
             setSection(title);
@@ -46,15 +49,36 @@ export default function App() {
 
     function scrollNav() {
         const ele = document.getElementById('nav');
-        ele.scrollTo({
-            left: 1000,
-            behavior: 'smooth'
-          });
+        
+        if (navArrow == "right") {
+            ele.scrollTo({
+                left: 1000,
+                behavior: 'smooth'
+              });
+        } else {
+            ele.scrollTo({
+                left: -1000,
+                behavior: 'smooth'
+              });
+        }  
+        
     }
 
     React.useEffect(() => {
         window.addEventListener('scroll', hideScrollIcon);
       }, []);
+      React.useEffect(() => {
+        const ele = document.getElementById('nav');
+        ele.addEventListener('scroll', () => {
+            if (ele.scrollWidth - ele.scrollLeft == ele.offsetWidth) {
+                setNavArrow("left");
+            } else {
+                setNavArrow("right");
+            }
+        });
+      }, []);
+
+      
     // document.addEventListener('scroll', hideScrollIcon);
 
     return (
@@ -66,7 +90,8 @@ export default function App() {
                     {navLinks.map(title => (
                         <li key={navLinks.indexOf(title)} className="pt-[1px] pr-[12px] pb-[1px] pl-[12px] rounded-[19px] border border-[#333] bg-[#333] mr-[2px]"><a className="py-3" onClick={() => getSectionName(title)} >{title}</a></li>
                     ))}
-                     <FontAwesomeIcon icon={faAnglesRight} className="text-golden absolute right-2 bottom-4 mr-[2px]" onClick={scrollNav} />
+                    {navArrow == "right" ? <FontAwesomeIcon icon={faAnglesRight} className="text-golden absolute right-2 bottom-4 mr-[2px]" onClick={scrollNav} /> : <FontAwesomeIcon icon={faAnglesLeft} className="text-golden absolute right-2 bottom-4 mr-[2px]" onClick={scrollNav} />}
+                     
                 </ul>
             </nav>
             <Section section={section} />
