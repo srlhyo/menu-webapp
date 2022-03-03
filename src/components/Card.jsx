@@ -2,7 +2,7 @@ import React from 'react';
 import playButton from '../images/Play2.png';
 import myVideo from '/videos/menu.mp4';
 
-function Card(props) {
+function Card({title, img, description}) {
 
     // let isClicked = false;
     //const dish = document.getElementById('dish');\
@@ -84,12 +84,12 @@ function Card(props) {
             </div> */}
             <div className="w-full h-229px" id="clickDish" onClick={controlVideo}>
                 <img ref={playIcon} className="absolute top-3 right-3 w-8 transition-all duration-500" src={playButton} alt="playbutton" />
-                <video onEnded={videoEnded} onPlay={videoStart} className="object-cover" ref={video} id="dish" width="100%" height="100%" muted poster={props.img}>
+                <video onEnded={videoEnded} onPlay={videoStart} className="object-cover" ref={video} id="dish" width="100%" height="100%" muted poster={img}>
                 <source src={myVideo} type="video/mp4"></source>
                 </video>
             </div>
-            <h3 className="text-sm py-3">{props.title}</h3>
-            <p className="text-xs pb-12">{props.description}</p>
+            <h3 className="text-sm py-3">{title}</h3>
+            <p className="text-xs pb-12">{description}</p>
         </div>
     )
 }

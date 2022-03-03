@@ -70,7 +70,7 @@ export default function App() {
       React.useEffect(() => {
         const ele = document.getElementById('nav');
         ele.addEventListener('scroll', () => {
-            if (ele.scrollWidth - ele.scrollLeft == ele.offsetWidth) {
+            if (ele.scrollLeft > 50) {
                 setNavArrow("left");
             } else {
                 setNavArrow("right");
