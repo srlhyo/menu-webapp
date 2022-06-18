@@ -88,7 +88,10 @@ function Card({title, img, description}) {
                 <source src={myVideo} type="video/mp4"></source>
                 </video>
             </div>
-            <h3 className="text-sm py-3">{title}</h3>
+            <div className='flex justify-between items-center px-2' id="dishName">
+            <h3 className="text-lg font-bold py-3">{title}</h3>
+            <span className='text-sm font-thin italic pr-2' id="dishPrice">18,90 &euro;</span>
+            </div>
             <p className="text-xs pb-12">{description}</p>
         </div>
     )
