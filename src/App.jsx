@@ -8,6 +8,7 @@ import restaurant from './images/main.jpg';
 import scrollIcon from './images/Top.png';
 import Section from './components/Section';
 
+
 // css
 var scrollStyle = {
     "scrollbarWidth": "none"

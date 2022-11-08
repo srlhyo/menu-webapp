@@ -1,8 +1,17 @@
 import React from 'react';
 import playButton from '../images/Play2.png';
 import myVideo from '/videos/menu.mp4';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Navigation, EffectFade } from 'swiper';
+import { Pagination} from "swiper";
+// Import Swiper styles
+import 'swiper/css';
+// import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
 
-function Card({title, img, description}) {
+function Card(props) {
 
     // let isClicked = false;
     //const dish = document.getElementById('dish');\
@@ -82,17 +91,48 @@ function Card({title, img, description}) {
                 <img src={props.img} alt="salmon" />
                 <img className="absolute top-3 right-3 w-8" src={playButton} alt="playbutton" />
             </div> */}
-            <div className="w-full h-229px" id="clickDish" onClick={controlVideo}>
-                <img ref={playIcon} className="absolute top-3 right-3 w-8 transition-all duration-500" src={playButton} alt="playbutton" />
-                <video onEnded={videoEnded} onPlay={videoStart} className="object-cover" ref={video} id="dish" width="100%" height="100%" muted poster={img}>
-                <source src={myVideo} type="video/mp4"></source>
-                </video>
-            </div>
+
+            <Swiper
+                className="w-full h-229px z-0"
+                // modules={[Navigation, EffectFade]}
+                pagination={true}
+                // navigation={true}
+                modules={[Pagination]}
+                effect
+                speed={800}
+                slidesPerView={1}
+                loop 
+            >
+                <SwiperSlide >
+                    <img className="w-full h-full object-cover" src={props.img1} alt="" />
+                </SwiperSlide>
+                <SwiperSlide >
+                    <img className="w-full h-full object-cover" src={props.img2} alt="" />
+                </SwiperSlide>
+                <SwiperSlide >
+                    <img className="w-full h-full object-cover" src={props.img3} alt="" />
+                </SwiperSlide>
+                <SwiperSlide >
+                    <img className="w-full h-full object-cover" src={props.img4} alt="" />
+                </SwiperSlide>
+                <SwiperSlide >
+                    <img className="w-full h-full object-cover" src={props.img5} alt="" />
+                </SwiperSlide>
+                {props.video ? <SwiperSlide >
+                    <div className="w-full h-229px" id="clickDish" onClick={controlVideo}>
+                        <img ref={playIcon} className="absolute top-3 right-3 w-8 transition-all duration-500" src={playButton} alt="playbutton" />
+                        <video onEnded={videoEnded} onPlay={videoStart} className="object-cover" ref={video} id="dish" width="100%" height="100%" poster={props.videoPreview}>
+                        <source src={props.video} type="video/mp4"></source>
+                        </video> 
+                    </div> 
+                </SwiperSlide> : null} 
+                
+            </Swiper>
             <div className='flex justify-between items-center px-2' id="dishName">
-            <h3 className="text-lg font-bold py-3">{title}</h3>
+            <h3 className="text-lg font-bold py-3">{props.title}</h3>
             <span className='text-sm font-thin italic pr-2' id="dishPrice">18,90 &euro;</span>
             </div>
-            <p className="text-xs pb-12">{description}</p>
+            <p className="text-xs pb-12">{props.description}</p>
         </div>
     )
 }
